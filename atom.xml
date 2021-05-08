@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
-  <updated>2021-01-18T22:08:58.000Z</updated>
+  <updated>2021-05-08T19:14:38.426Z</updated>
   <id>https://godweiyang.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gpu queue</title>
+    <link href="https://godweiyang.com/2021/05/09/gpu-queue/"/>
+    <id>https://godweiyang.com/2021/05/09/gpu-queue/</id>
+    <published>2021-05-08T19:07:33.000Z</published>
+    <updated>2021-05-08T19:14:38.426Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;GPU排队脚本——一旦GPU空闲，自动触发python程序&quot;&gt;&lt;a href=&quot;#GPU排队脚本——一旦GPU空闲，自动触发python程序&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>5W2H | 关于写博客的七点反思</title>
