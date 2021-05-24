@@ -5,12 +5,12 @@
   <subtitle>算法码上来</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://godweiyang.com/"/>
-  <updated>2021-05-08T19:14:38.426Z</updated>
-  <id>https://godweiyang.com/</id>
+  <link href="https://zhenyuanlin.github.io/"/>
+  <updated>2021-05-24T03:11:38.792Z</updated>
+  <id>https://zhenyuanlin.github.io/</id>
   
   <author>
-    <name>韦阳</name>
+    <name>Zhenyuan Lin</name>
     
   </author>
   
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Gpu queue</title>
-    <link href="https://godweiyang.com/2021/05/09/gpu-queue/"/>
-    <id>https://godweiyang.com/2021/05/09/gpu-queue/</id>
+    <link href="https://zhenyuanlin.github.io/2021/05/09/gpu-queue/"/>
+    <id>https://zhenyuanlin.github.io/2021/05/09/gpu-queue/</id>
     <published>2021-05-08T19:07:33.000Z</published>
-    <updated>2021-05-08T19:14:38.426Z</updated>
+    <updated>2021-05-24T03:11:38.792Z</updated>
     
     <summary type="html">
     
@@ -35,15 +35,17 @@
     
     </summary>
     
+      <category term="随笔" scheme="https://zhenyuanlin.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
     
   </entry>
   
   <entry>
     <title>5W2H | 关于写博客的七点反思</title>
-    <link href="https://godweiyang.com/2020/01/14/5w2h-godweiyang/"/>
-    <id>https://godweiyang.com/2020/01/14/5w2h-godweiyang/</id>
+    <link href="https://zhenyuanlin.github.io/2020/01/14/5w2h-godweiyang/"/>
+    <id>https://zhenyuanlin.github.io/2020/01/14/5w2h-godweiyang/</id>
     <published>2020-01-14T07:27:31.000Z</published>
-    <updated>2021-01-18T22:08:58.000Z</updated>
+    <updated>2021-05-23T12:53:53.600Z</updated>
     
     <summary type="html">
     
@@ -61,10 +63,10 @@
     
     </summary>
     
-      <category term="随笔" scheme="https://godweiyang.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://zhenyuanlin.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="博客" scheme="https://godweiyang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://zhenyuanlin.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
