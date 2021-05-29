@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>专业英语</title>
+      <link href="/2021/05/29/zhuan-ye-ying-yu/"/>
+      <url>/2021/05/29/zhuan-ye-ying-yu/</url>
+      
+        <content type="html"><![CDATA[<p>在实验或看论文中遇到的一些英语学习，学习！</p><a id="more"></a><h5 id="Gradient-overflow-梯度溢出"><a href="#Gradient-overflow-梯度溢出" class="headerlink" title="Gradient overflow 梯度溢出"></a>Gradient overflow 梯度溢出</h5><p>Gradient overflow. Skipping step, loss scaler 0 reducing loss scale to 131072.0</p><p>解决办法：</p><p>经过验证可以通过以下几种方法，来防止出现梯度溢出的问题：</p><p>1、O2换成O1，再不行换成O0</p><p>2、把batchsize从32调整为16会显著解决这个问题，另外在换成O0的时候会出现内存不足的情况，减小batchsize也是有帮助的</p><p>3、减少学习率也是一种方法</p><p>4、增加Relu会有效保存梯度，防止梯度消失</p><p>opt_level</p><p>其中只有一个opt_level需要用户自行配置：</p><p>O0：纯FP32训练，可以作为accuracy的baseline；</p><p>O1：混合精度训练（推荐使用），根据黑白名单自动决定使用FP16（GEMM, 卷积）还是FP32（Softmax）进行计算。</p><p>O2：“几乎FP16”混合精度训练，不存在黑白名单，除了Batch norm，几乎都是用FP16计算。之前是这个</p><p>O3：纯FP16训练，很不稳定，但是可以作为speed的baseline；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Gpu queue</title>
       <link href="/2021/05/09/gpu-queue/"/>
       <url>/2021/05/09/gpu-queue/</url>

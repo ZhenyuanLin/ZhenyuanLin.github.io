@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"zhenyuanlin.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="你来到了没有知识的荒原 :(">
+  <meta name="description" content="在实验或看论文中遇到的一些英语学习，学习！">
 <meta name="keywords" content="ECNU CV DeepLearning ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://zhenyuanlin.github.io/404.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专业英语">
+<meta property="og:url" content="https://zhenyuanlin.github.io/2021/05/29/zhuan-ye-ying-yu/index.html">
 <meta property="og:site_name" content="Zhenyuan Lin">
-<meta property="og:description" content="你来到了没有知识的荒原 :(">
+<meta property="og:description" content="在实验或看论文中遇到的一些英语学习，学习！">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-01-18T22:08:58.000Z">
+<meta property="og:updated_time" content="2021-05-29T14:45:21.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description" content="你来到了没有知识的荒原 :(">
+<meta name="twitter:title" content="专业英语">
+<meta name="twitter:description" content="在实验或看论文中遇到的一些英语学习，学习！">
 
-<link rel="canonical" href="https://zhenyuanlin.github.io/404">
+<link rel="canonical" href="https://zhenyuanlin.github.io/2021/05/29/zhuan-ye-ying-yu/">
 
 
 <script id="page-configurations">
@@ -41,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'default'
   };
 </script>
 
-  <title>404 | Zhenyuan Lin
-</title>
+  <title>专业英语 | Zhenyuan Lin</title>
   
 
 
@@ -145,44 +144,104 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="default">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://zhenyuanlin.github.io/2021/05/29/zhuan-ye-ying-yu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhenyuan Lin">
+      <meta itemprop="description" content="ECNU | Computer Science | CV">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyuan Lin">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          专业英语
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">404
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
 
-<div class="post-meta">
-    <div class="post-description">你来到了没有知识的荒原 :(</div>
+              <time title="Created: 2021-05-29 22:07:33 / Modified: 22:45:21" itemprop="dateCreated datePublished" datetime="2021-05-29T22:07:33+08:00">2021-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在实验或看论文中遇到的一些英语学习，学习！</p>
+<a id="more"></a>
+
+<h5 id="Gradient-overflow-梯度溢出"><a href="#Gradient-overflow-梯度溢出" class="headerlink" title="Gradient overflow 梯度溢出"></a>Gradient overflow 梯度溢出</h5><p>Gradient overflow. Skipping step, loss scaler 0 reducing loss scale to 131072.0</p>
+<p>解决办法：</p>
+<p>经过验证可以通过以下几种方法，来防止出现梯度溢出的问题：</p>
+<p>1、O2换成O1，再不行换成O0</p>
+<p>2、把batchsize从32调整为16会显著解决这个问题，另外在换成O0的时候会出现内存不足的情况，减小batchsize也是有帮助的</p>
+<p>3、减少学习率也是一种方法</p>
+<p>4、增加Relu会有效保存梯度，防止梯度消失</p>
+<p>opt_level</p>
+<p>其中只有一个opt_level需要用户自行配置：</p>
+<p>O0：纯FP32训练，可以作为accuracy的baseline；</p>
+<p>O1：混合精度训练（推荐使用），根据黑白名单自动决定使用FP16（GEMM, 卷积）还是FP32（Softmax）进行计算。</p>
+<p>O2：“几乎FP16”混合精度训练，不存在黑白名单，除了Batch norm，几乎都是用FP16计算。之前是这个</p>
+<p>O3：纯FP16训练，很不稳定，但是可以作为speed的baseline；</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/09/gpu-queue/" rel="prev" title="Gpu queue">
+      <i class="fa fa-chevron-left"></i> Gpu queue
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -233,6 +292,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Gradient-overflow-梯度溢出"><span class="nav-number">1.</span> <span class="nav-text">Gradient overflow 梯度溢出</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
