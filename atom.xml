@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhenyuanlin.github.io/"/>
-  <updated>2021-05-29T14:45:21.928Z</updated>
+  <updated>2021-05-31T17:26:25.556Z</updated>
   <id>https://zhenyuanlin.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BERT-ATTACK-- Adversarial Attack Against BERT Using BERT</title>
+    <link href="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/"/>
+    <id>https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/</id>
+    <published>2021-05-31T14:07:33.000Z</published>
+    <updated>2021-05-31T17:26:25.556Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近读了一点论文&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="论文" scheme="https://zhenyuanlin.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>专业英语</title>
