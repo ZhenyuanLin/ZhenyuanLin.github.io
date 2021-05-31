@@ -1,4 +1,5 @@
 https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/
+https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/
 https://zhenyuanlin.github.io/2021/05/29/zhuan-ye-ying-yu/
 https://zhenyuanlin.github.io/2021/05/09/gpu-queue/
 https://zhenyuanlin.github.io/2020/01/14/5w2h-godweiyang/

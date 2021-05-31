@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhenyuanlin.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近读了一点论文">
+<meta name="keywords" content="ECNU CV DeepLearning ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do Adversarially Robust ImageNetModels Transfer Better?">
+<meta property="og:url" content="https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/index.html">
+<meta property="og:site_name" content="Zhenyuan Lin">
+<meta property="og:description" content="最近读了一点论文">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601010146369.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531233156838.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531234340123.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531234318900.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601005000835.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601005421962.png">
+<meta property="og:updated_time" content="2021-05-31T17:33:24.189Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Do Adversarially Robust ImageNetModels Transfer Better?">
+<meta name="twitter:description" content="最近读了一点论文">
+<meta name="twitter:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601010146369.png">
+
+<link rel="canonical" href="https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
+
+  <title>Do Adversarially Robust ImageNetModels Transfer Better? | Zhenyuan Lin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Zhenyuan Lin</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhenyuan Lin">
+      <meta itemprop="description" content="ECNU | Computer Science | CV">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyuan Lin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Do Adversarially Robust ImageNetModels Transfer Better?
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-31 21:07:33" itemprop="dateCreated datePublished" datetime="2021-05-31T21:07:33+08:00">2021-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-01 01:33:24" itemprop="dateModified" datetime="2021-06-01T01:33:24+08:00">2021-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近读了一点论文</p>
+<a id="more"></a>
+
+<h4 id="Do-Adversarially-Robust-ImageNetModels-Transfer-Better"><a href="#Do-Adversarially-Robust-ImageNetModels-Transfer-Better" class="headerlink" title="Do Adversarially Robust ImageNetModels Transfer Better?"></a>Do Adversarially Robust ImageNetModels Transfer Better?</h4><p>Hadi Salman，Andrew Ilyas，Logan Engstrom，Ashish Kapoor，Aleksander Madry Microsoft Research，MIT  ICML2020</p>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>迁移学习是深度学习中广泛使用的一种范式，在标准数据集上预先训练的模型可以有效地适应下游任务。通常，更好的预训练模型会产生更好的迁移结果，这表明初始精度是迁移学习性能的一个关键层面。在这项工作中，作者发现了另一个这样的层面：作者发现，对抗鲁棒模型虽然精度较低，但在用于迁移学习时，往往比标准训练的模型表现得更好。具体地说，作者将重点放在对抗鲁棒的ImageNet分类器上，并表明它们在一套标准的下游分类任务中提高了准确性。进一步的分析揭示了迁移学习背景下稳健模型和标准模型之间的更多差异。</p>
+<ul>
+<li><h5 id="What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？"><a href="#What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？" class="headerlink" title="What is the problem the paper is trying to address? 论文试图解决什么问题？"></a>What is the problem the paper is trying to address? 论文试图解决什么问题？</h5><p>本文工作的动机建立在提升迁移学习性能上，预先训练的具有更高精度的ImageNet模型可以产生更好的固定特征转移学习结果。不过，目前尚不清楚提高 ImageNet 准确率是否是提高性能的唯一途径。 毕竟，固定特征迁移的行为受模型学习表示的控制，而源数据集的准确性并没有完全描述这些表示。在这项工作中，作者把注意力转向另一个点对抗性鲁棒性，对抗鲁棒性是否有助于迁移学习？</p>
+</li>
+<li><h5 id="What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？"><a href="#What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？" class="headerlink" title="What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？"></a>What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？</h5><p>从迁移学习的角度来看，“对抗性鲁棒性”的预期是不明确的。一方面，对抗样本的鲁棒性似乎与转移性能有些相关。事实上，对抗鲁棒模型的精确度明显低于标准模型[TSE+19；SZC+18；RXY+19；Nak19]，而迁移模型的初始准确率却会大大的影响模型的性能，这表明使用对抗性健壮的特征表示会损害传输性能。</p>
+<p>另一方面，最近的工作发现鲁棒模型的特征表示比标准模型的特征表示有几个优点。例如，对抗性鲁棒表示通常具有更好的梯度 [TSE+19; STT+19； ZZ19; KCL19]，从而促进无正则化特征可视化 [EIS+19b]。鲁棒表示也是近似可逆的 [EIS+19b]，这意味着与标准模型不同 [MV15; [DB16]，可以从其鲁棒性表示中近似直接重建图像（请参见图1b）。Engstrom等人假设通过强制网络对人类也不变的信号保持不变，稳健的训练目标会导致特征表示与人类使用的更相似。这表明，从迁移学习的角度来看，对抗性稳健性可能是一种可取的先验知识。本文就是想要研究对抗鲁棒性对于迁移学习的影响，解决这两个相互冲突的假设，为了解决这两个相互冲突的假设，使用12个标准迁移学习数据集的试验台来评估标准和不利稳健ImageNet模型上的固定特征传输。</p>
+</li>
+<li><h5 id="How-are-the-experiments-designed-论文中的实验是如何设计的？"><a href="#How-are-the-experiments-designed-论文中的实验是如何设计的？" class="headerlink" title="How are the experiments designed? 论文中的实验是如何设计的？"></a>How are the experiments designed? 论文中的实验是如何设计的？</h5><p>在本文中，作者在不同的架构上训练了许多标准和健壮的ImageNet模型。这些模型适用于所有的迁移学习实验。作者用PyTorch的Torchvision2中的几个标准架构进行了实验。作者使用12个标准传输学习数据集来评估标准和不利稳健ImageNet模型上的固定特征传输，所有数据集都是在[KSL19]以及Caltech-256[GHP07]中的。作者考虑了四种基于ResNet的体系结构（ResNet-{18,50}，WideResNet-50-x{2,4}），并训练具有不同鲁棒性水平的模型ε对于每种体系结构，作者比较了标准模型和具有相同体系结构的最佳鲁棒模型。模型训练有一些固定的参数，作者使用batch size为512、动量为0.9、weight decay为1e-4的SGD来训练所有模型。作者训练90个阶段，初始学习率为0.1，每30个阶段下降10倍。对于标准训练，作者采用标准交叉熵多类分类损失。对于健壮性训练，作者使用对抗性训练[MMS+18]。作者训练对抗样本产生的最大允许扰动 $$l_{2}$$ of  ε∈ {0.01、0.03、0.05、0.1、0.25、0.5、1、3、5}以及最大允许扰动 $$l_{∞}$$ of  ε使用3个攻击步骤，每个攻击步骤步长为$$\frac{2 ε}{3}$$.</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210601010146369.png" alt="image-20210601010146369" style="zoom:33%;">
+
+<p>作者还对目标检测和实例分割进行了实验来验证鲁棒的模型在迁移学习中的表现。作者仅使用 Detectron25 的标准配置来训练模型。 对于 COCO 任务，计算限制使得无法从每个初始化中进行训练。 因而，作者使用降低的学习率计划（Detectron2 中相应的 1x 学习率计划）从每一个初始化开始训练，然后从前三个初始化（通过 Box AP）以及使用完整学习率训练计划（3x 计划）的标准模型进行训练。</p>
+</li>
+<li><h5 id="What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？"><a href="#What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？" class="headerlink" title="What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？"></a>What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？</h5><img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531233156838.png" alt="image-20210531233156838" style="zoom:40%;">
+
+<p>作者在[KSL19]中使用的分类数据集上测试从ImageNet预训练模型开始的迁移学习。这些数据集的大小因类和数据点的数量而异。</p>
+<p>代码已开源： <a href="https://github.com/Microsoft/robust-models-transfer" target="_blank" rel="noopener">https://github.com/Microsoft/robust-models-transfer</a></p>
+</li>
+<li><h5 id="Is-the-scientific-hypothesis-well-supported-by-evidence-in-the-experiments-论文中的实验及结果有没有很好地支持需要验证的科学假设？"><a href="#Is-the-scientific-hypothesis-well-supported-by-evidence-in-the-experiments-论文中的实验及结果有没有很好地支持需要验证的科学假设？" class="headerlink" title="Is the scientific hypothesis well supported by evidence in the experiments?论文中的实验及结果有没有很好地支持需要验证的科学假设？"></a>Is the scientific hypothesis well supported by evidence in the experiments?论文中的实验及结果有没有很好地支持需要验证的科学假设？</h5><img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531234340123.png" alt="image-20210531234340123" style="zoom:30%;">
+
+<p>为了验证这一假设，作者首先研究了作者训练的每个稳健模型的ImageNet精度和传输精度之间的关系。作者发现，一旦稳健性方面发挥作用，先前观察到的准确度和传输性能之间的线性关系往往会被破坏。更直接地支持假设，即稳健性和ImageNet准确度对传输有不同的影响，作者发现，当稳健性水平保持不变时，标准模型的精度传递相关性实际上也适用于稳健性模型ε=3。因此，六种不同结构的模型精度较低，并将ImageNet的精度与迁移学习性能进行了比较。对于这些模型，提高ImageNet的准确度可以提高模型迁移性能，提高的准确率与标准模型相当（并且比标准模型具有更高的相关性）。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。除此之外，作者的研究结果还表明准确度并不能充分衡量特征质量，理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题，可能与以前分析这些网络使用的特性的工作有关。</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531234318900.png" alt="image-20210531234318900" style="zoom:30%;">
+
+<p>作者的实验还揭示了鲁棒模型和标准模型在传递性能随模型宽度变化方面的对比。虽然增加网络深度可以改善传输性能，但增加网络宽度会损害传输性能。随着宽度的增加，标准模型的传输性能平台和下降，但对于稳健的模型来说，仍在稳步增长。这表明与标准网络相比，扩展网络宽度可以进一步提高鲁棒网络的迁移性能。</p>
+<p>接着，作者将这一研究结果延续到这全网络迁移学习的三个应用：图像分类、目标检测和实例分割进行了实验。</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210601005000835.png" alt="image-20210601005000835" style="zoom:30%;">
+
+<p>对于12个下游图像分类任务，使用标准和稳健模型的全网络转移学习结果。可以发现鲁棒模型在迁移学习性能方面与标准模型匹配或有提升。</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210601005421962.png" alt="image-20210601005421962" style="zoom:33%;">
+
+<p>对于目标标检测和实例分割同样可以发现鲁棒的模型的迁移学习性能更强。</p>
+</li>
+<li><h5 id="What-are-the-contributions-of-the-paper-What-could-be-done-next"><a href="#What-are-the-contributions-of-the-paper-What-could-be-done-next" class="headerlink" title="What are the contributions of the paper? What could be done next?"></a>What are the contributions of the paper? What could be done next?</h5><p>在这项工作中使用对抗鲁棒模型的迁移学习，比较了鲁棒模型和标准模型在12个分类任务、目标检测和实例分割上的学习性能。实验结果表明，尽管ImageNet的精确度较低，但对抗性鲁棒神经网络的性能始终与标准神经网络的性能相匹配或提高。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。文章还进一步研究了对抗鲁棒网络的行为，并研究了ImageNet精度、模型宽度、鲁棒性和迁移性能之间的相互作用。虽然增加网络深度可以改善传输性能，但增加网络宽度会损害传输性能。随着宽度的增加，标准模型的传输性能平台和下降，但对于稳健的模型来说，仍在稳步增长。这表明与标准网络相比，扩展网络宽度可以进一步提高鲁棒网络的迁移性能。本文偏重实验着重从实验的角度出发告诉了我们这样一个理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题。下一步研究可以着重从理论的角度去解释为什么健壮的网络迁移效果比较好。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/29/zhuan-ye-ying-yu/" rel="prev" title="专业英语">
+      <i class="fa fa-chevron-left"></i> 专业英语
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/" rel="next" title="BERT-ATTACK-- Adversarial Attack Against BERT Using BERT">
+      BERT-ATTACK-- Adversarial Attack Against BERT Using BERT <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Do-Adversarially-Robust-ImageNetModels-Transfer-Better"><span class="nav-number">1.</span> <span class="nav-text">Do Adversarially Robust ImageNetModels Transfer Better?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#摘要"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？"><span class="nav-number">1.2.</span> <span class="nav-text">What is the problem the paper is trying to address? 论文试图解决什么问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#How-are-the-experiments-designed-论文中的实验是如何设计的？"><span class="nav-number">1.4.</span> <span class="nav-text">How are the experiments designed? 论文中的实验是如何设计的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？"><span class="nav-number">1.5.</span> <span class="nav-text">What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Is-the-scientific-hypothesis-well-supported-by-evidence-in-the-experiments-论文中的实验及结果有没有很好地支持需要验证的科学假设？"><span class="nav-number">1.6.</span> <span class="nav-text">Is the scientific hypothesis well supported by evidence in the experiments?论文中的实验及结果有没有很好地支持需要验证的科学假设？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#What-are-the-contributions-of-the-paper-What-could-be-done-next"><span class="nav-number">1.7.</span> <span class="nav-text">What are the contributions of the paper? What could be done next?</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zhenyuan Lin</p>
+  <div class="site-description" itemprop="description">ECNU | Computer Science | CV</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhenyuan Lin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
