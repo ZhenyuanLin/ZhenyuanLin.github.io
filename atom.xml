@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhenyuanlin.github.io/"/>
-  <updated>2021-05-31T17:36:52.160Z</updated>
+  <updated>2021-06-05T13:57:28.158Z</updated>
   <id>https://zhenyuanlin.github.io/</id>
   
   <author>
@@ -17,15 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>:title.md</title>
-    <link href="https://zhenyuanlin.github.io/2021/06/01/title-md/"/>
-    <id>https://zhenyuanlin.github.io/2021/06/01/title-md/</id>
-    <published>2021-05-31T17:36:52.000Z</published>
-    <updated>2021-05-31T17:36:52.160Z</updated>
+    <title>Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？</title>
+    <link href="https://zhenyuanlin.github.io/2021/06/05/rethink-overfitting-overfitting-de-chuan-tong-he-xian-dai-guan-dian-you-shi-me-bu-tong-ni/"/>
+    <id>https://zhenyuanlin.github.io/2021/06/05/rethink-overfitting-overfitting-de-chuan-tong-he-xian-dai-guan-dian-you-shi-me-bu-tong-ni/</id>
+    <published>2021-06-05T14:07:33.000Z</published>
+    <updated>2021-06-05T13:57:28.158Z</updated>
     
     <summary type="html">
     
+      &lt;p&gt;做了一道清叉大佬的测试题&lt;/p&gt;
+    
     </summary>
+    
+      <category term="Machine Learning" scheme="https://zhenyuanlin.github.io/categories/Machine-Learning/"/>
     
     
   </entry>
@@ -35,7 +39,7 @@
     <link href="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/"/>
     <id>https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/</id>
     <published>2021-05-31T14:07:33.000Z</published>
-    <updated>2021-05-31T17:46:00.929Z</updated>
+    <updated>2021-06-01T03:31:24.516Z</updated>
     
     <summary type="html">
     

@@ -29,11 +29,10 @@
 <meta property="og:description" content="最近读了一点论文">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/BERT-ATTACK_Adversarial%20Attack%20Against%20BERT%20Using%20BERT/屏幕快照%202021-06-01%20上午1.41.03.png">
-<meta property="og:image" content="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/BERT-ATTACK_Adversarial%20Attack%20Against%20BERT%20Using%20BERT/屏幕快照%202021-06-01%20上午1.42.47.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/BERT-ATTACK_Adversarial%20Attack%20Against%20BERT%20Using%20BERT/屏幕快照%202021-06-01%20上午1.43.30.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/BERT-ATTACK_Adversarial%20Attack%20Against%20BERT%20Using%20BERT/屏幕快照%202021-06-01%20上午1.44.45.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/BERT-ATTACK_Adversarial%20Attack%20Against%20BERT%20Using%20BERT/屏幕快照%202021-06-01%20上午1.45.30.png">
-<meta property="og:updated_time" content="2021-05-31T17:46:00.929Z">
+<meta property="og:updated_time" content="2021-06-01T03:31:24.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT-ATTACK-- Adversarial Attack Against BERT Using BERT">
 <meta name="twitter:description" content="最近读了一点论文">
@@ -188,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-01 01:46:00" itemprop="dateModified" datetime="2021-06-01T01:46:00+08:00">2021-06-01</time>
+                <time title="Modified: 2021-06-01 11:31:24" itemprop="dateModified" datetime="2021-06-01T11:31:24+08:00">2021-06-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,6 +213,8 @@
         <p>最近读了一点论文</p>
 <a id="more"></a>
 
+
+
 <h4 id="BERT-ATTACK-Adversarial-Attack-Against-BERT-Using-BERT"><a href="#BERT-ATTACK-Adversarial-Attack-Against-BERT-Using-BERT" class="headerlink" title="BERT-ATTACK: Adversarial Attack Against BERT Using BERT"></a>BERT-ATTACK: Adversarial Attack Against BERT Using BERT</h4><p>Linyang Li, Ruotian Ma, Qipeng Guo, Xiangyang Xue, Xipeng Qiu∗Shanghai Key Laboratory of Intelligent Information Processing, Fudan University EMNLP2020</p>
 <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>针对离散数据（例如文本）的对抗攻击比连续数据（例如图像）更具挑战性，因为很难使用基于梯度的方法生成对抗样本。当前成功的文本攻击方法通常在字符或单词级别上采用启发式替换策略，替换时难以保持语义一致性和语言流畅性。在本文中，作者提出了BERT-Attack，这是一种高质量且有效的方法，可以使用以BERT为例的MLM预训练语言模型来生成对抗性样本。作者使用BERT对抗其微调模型和其他预训练模型，以误导目标模型，使其预测错误。作者的方法在成功率和扰动百分比方面均优于最新的攻击策略，并且生成的对抗性样本很流利，并且在语义一致。而且作者的方法计算成本低，可以大规模生成。</p>
 <ul>
@@ -230,10 +231,11 @@
 <p>找到易受攻击的单词后，将列表L中的单词一一替换，以寻找可能误导目标模型的干扰。以前的替换方法包括同义词词典，POS检查器，语义相似性检查器等。但是因为替换的时候只有词表，不考虑上下文，因此需要用传统语言模型给替换单词的句子打分。由于换一个词就得评价一次，时间成本比较高。</p>
 <p>作者利用BERT进行单词替换，可确保所生成的句子相对流利且语法正确，还保留了大多数语义信息。此外，掩码语言模型的预测是上下文感知的，因此可以动态搜索扰动，而不是简单的同义词替换。而且针对一个词而言，仅通过一个前向即可产生候选文本，无需再用语言模型来对句子评分，提升了效率。</p>
 <p>3.替换策略</p>
-<img src="BERT-ATTACK_Adversarial Attack Against BERT Using BERT/屏幕快照 2021-06-01 上午1.42.47.png" alt="屏幕快照 2021-06-01 上午1.42.47" style="zoom:40%;">
-
-<p>MLM语言模型的真实性保证了生成的句子相对流畅，语法正确，同时保留了大部分的语义信息，这一点后来得到了人类评价者的证实。此外，与以往基于规则的扰动策略相比，掩蔽语言模型预测具有上下文感知能力，因此比简单的同义词替换更能动态地搜索扰动。</p>
+<p>![屏幕快照 2021-06-01 上午1.42.47](BERT-ATTACK_Adversarial Attack Against BERT Using BERT/屏幕快照 2021-06-01 上午1.42.47.png )</p>
 </li>
+</ul>
+<p>  MLM语言模型的真实性保证了生成的句子相对流畅，语法正确，同时保留了大部分的语义信息，这一点后来得到了人类评价者的证实。此外，与以往基于规则的扰动策略相比，掩蔽语言模型预测具有上下文感知能力，因此比简单的同义词替换更能动态地搜索扰动。</p>
+<ul>
 <li><h5 id="How-are-the-experiments-designed-论文中的实验是如何设计的？"><a href="#How-are-the-experiments-designed-论文中的实验是如何设计的？" class="headerlink" title="How are the experiments designed? 论文中的实验是如何设计的？"></a>How are the experiments designed? 论文中的实验是如何设计的？</h5><p>作者应用作者的方法以文本分类和自然语言推理的形式来攻击不同类型的NLP任务。作者从给定任务的测试集中随机选取1k个测试样本来评估作者的方法。首先是，文本分类任务，作者使用不同类型的文本分类任务来研究作者的方法的有效性。然后是自然语言推理，给出一个前提和一个假设，目标是预测假设是相吻合的、不相关的还是与前提相矛盾的。</p>
 <p>为了衡量所生成样本的质量，作者设计了几种评估指标：成功率（success rate）：攻击样本的判别器准确率。扰动百分比（perturbed percentage）更改文本的占比。每个样本的查询数量（query number per sample）一个样本生成对抗样本的需要访问判别器的次数。语义相似度（semantic similarity）使用通用句子编码器（Universal Sentence Encoder）评价的句子相似度。</p>
 </li>
@@ -276,8 +278,8 @@
       <i class="fa fa-chevron-left"></i> Do Adversarially Robust ImageNetModels Transfer Better?
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/06/01/title-md/" rel="next" title=":title.md">
-      :title.md <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/05/rethink-overfitting-overfitting-de-chuan-tong-he-xian-dai-guan-dian-you-shi-me-bu-tong-ni/" rel="next" title="Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？">
+      Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？ <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -357,7 +359,7 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
