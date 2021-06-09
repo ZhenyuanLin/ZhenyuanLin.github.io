@@ -28,17 +28,18 @@
 <meta property="og:site_name" content="Zhenyuan Lin">
 <meta property="og:description" content="最近读了一点论文">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601010146369.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210609204122633.png">
+<meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210609204723553.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531233156838.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531234340123.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210531234318900.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601005000835.png">
 <meta property="og:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601005421962.png">
-<meta property="og:updated_time" content="2021-05-31T17:33:24.189Z">
+<meta property="og:updated_time" content="2021-06-09T13:04:10.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Do Adversarially Robust ImageNetModels Transfer Better?">
 <meta name="twitter:description" content="最近读了一点论文">
-<meta name="twitter:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210601010146369.png">
+<meta name="twitter:image" content="https://zhenyuanlin.github.io/Users/mac/Library/Application%20Support/typora-user-images/image-20210609204122633.png">
 
 <link rel="canonical" href="https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/">
 
@@ -189,7 +190,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-01 01:33:24" itemprop="dateModified" datetime="2021-06-01T01:33:24+08:00">2021-06-01</time>
+                <time title="Modified: 2021-06-09 21:04:10" itemprop="dateModified" datetime="2021-06-09T21:04:10+08:00">2021-06-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,26 +217,40 @@
 <a id="more"></a>
 
 <h4 id="Do-Adversarially-Robust-ImageNetModels-Transfer-Better"><a href="#Do-Adversarially-Robust-ImageNetModels-Transfer-Better" class="headerlink" title="Do Adversarially Robust ImageNetModels Transfer Better?"></a>Do Adversarially Robust ImageNetModels Transfer Better?</h4><p>Hadi Salman，Andrew Ilyas，Logan Engstrom，Ashish Kapoor，Aleksander Madry Microsoft Research，MIT  ICML2020</p>
-<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>迁移学习是深度学习中广泛使用的一种范式，在标准数据集上预先训练的模型可以有效地适应下游任务。通常，更好的预训练模型会产生更好的迁移结果，这表明初始精度是迁移学习性能的一个关键层面。在这项工作中，作者发现了另一个这样的层面：作者发现，对抗鲁棒模型虽然精度较低，但在用于迁移学习时，往往比标准训练的模型表现得更好。具体地说，作者将重点放在对抗鲁棒的ImageNet分类器上，并表明它们在一套标准的下游分类任务中提高了准确性。进一步的分析揭示了迁移学习背景下稳健模型和标准模型之间的更多差异。</p>
+<h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><p>在深度学习中，迁移学习是一种广泛使用的模式。在这种模式中，在标准数据集上预先训练的模型可以有效地适应下游任务。通常，更好的预训练模型产生更好的迁移结果，这表明初始准确性是迁移学习表现的一个关键方面。在这项工作中，我们确定了这样的另一个方面:当用于迁移学习时，虽然对抗鲁棒模型的准确度降低，但通常比标准训练的对应模型表现得更好。具体来说，我们关注的是具有对抗鲁棒性的ImageNet分类器，并展示了它们在下游分类任务上提高了准确性。进一步的分析揭示了迁移学习背景下鲁棒模型和标准模型的更多差异。我们的结果与最近提出的假设是一致的，即鲁棒性导致改进的特征表征。</p>
 <ul>
-<li><h5 id="What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？"><a href="#What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？" class="headerlink" title="What is the problem the paper is trying to address? 论文试图解决什么问题？"></a>What is the problem the paper is trying to address? 论文试图解决什么问题？</h5><p>本文工作的动机建立在提升迁移学习性能上，预先训练的具有更高精度的ImageNet模型可以产生更好的固定特征转移学习结果。不过，目前尚不清楚提高 ImageNet 准确率是否是提高性能的唯一途径。 毕竟，固定特征迁移的行为受模型学习表示的控制，而源数据集的准确性并没有完全描述这些表示。在这项工作中，作者把注意力转向另一个点对抗性鲁棒性，对抗鲁棒性是否有助于迁移学习？</p>
+<li><h5 id="What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？"><a href="#What-is-the-problem-the-paper-is-trying-to-address-论文试图解决什么问题？" class="headerlink" title="What is the problem the paper is trying to address? 论文试图解决什么问题？"></a>What is the problem the paper is trying to address? 论文试图解决什么问题？</h5><p>本文工作的动机建立在提升迁移学习性能上，迁移学习是指利用来自一个（“源”）任务的信息来更好地解决另一个（“目标”）任务的任何机器学习算法。预先训练的具有更高精度的ImageNet模型可以产生更好的固定特征转移学习结果。计算机视觉中的典型迁移学习pipeline（也是我们工作的重点）始于在 ImageNet-1K 数据集上训练的模型 ，然后为目标任务细化这个模型。不过目前我们还不知道提高 ImageNet 准确率是否是提高性能的唯一途径。 毕竟，固定特征迁移的行为受模型学习表示的控制，而源数据集的准确性并没有完全描述这些表示。在这项工作中，作者把注意力转向另一个点对抗性鲁棒性，对抗鲁棒性是否有助于迁移学习？</p>
 </li>
-<li><h5 id="What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？"><a href="#What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？" class="headerlink" title="What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？"></a>What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？</h5><p>从迁移学习的角度来看，“对抗性鲁棒性”的预期是不明确的。一方面，对抗样本的鲁棒性似乎与转移性能有些相关。事实上，对抗鲁棒模型的精确度明显低于标准模型[TSE+19；SZC+18；RXY+19；Nak19]，而迁移模型的初始准确率却会大大的影响模型的性能，这表明使用对抗性健壮的特征表示会损害传输性能。</p>
+<li><h5 id="What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？"><a href="#What-is-the-key-of-the-proposed-solution-in-the-paper-论文中提到的解决方案之关键是什么？" class="headerlink" title="What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？"></a>What is the key of the proposed solution in the paper? 论文中提到的解决方案之关键是什么？</h5><p>本文通过大量的实验对这一猜想进行了验证，对于每个迁移学习范式，作者报告了标准和稳健模型的十次随机试验的平均准确率。 同时使用网格搜索（使用一组不相交的随机子集）来找到最佳的超参数、架构和（对于稳健模型）鲁棒性水平 ε。 </p>
+<p>在这项工作中，我们将注意力转向另一个先验：对抗性鲁棒性。对抗性鲁棒性是指模型对其输入的小（通常难以察觉）扰动的不变性。通常在训练时通过用稳健优化目标 [MMS+18] 替换标准经验风险最小化目标来诱导稳健性：</p>
+<p>![image-20210609203215334](/Users/mac/Library/Application Support/typora-user-images/image-20210609203215334.png)</p>
+<p>其中 ε 是一个超参数，用于控制生成的“对抗性鲁棒模型”（更简单地说，“鲁棒模型”）的不变性。简而言之，该目标要求模型将训练数据点的风险降至最低，同时在每个点周围的 (radius-ε) 邻域中保持局部稳定。</p>
+<p>对抗性鲁棒性最初是在机器学习安全 [BCM+13; BR18; CW17] 作为一种提高模型对对抗性示例的弹性的方法 [GSS15; 彩信+18]。 然而，最近的一项工作本身研究了对抗性鲁棒模型，将 (1) 作为学习特征表示的先验 [EIS+19b; ISE+19； JBZ+19； ZZ19]。</p>
+<p>从迁移学习的角度来看，“对抗性鲁棒性”的预期是不明确的。一方面，对抗样本的鲁棒性似乎与转移性能有些相关。事实上，对抗鲁棒模型的精确度明显低于标准模型[TSE+19；SZC+18；RXY+19；Nak19]，而迁移模型的初始准确率却会大大的影响模型的性能，这表明使用对抗性健壮的特征表示会损害传输性能。</p>
 <p>另一方面，最近的工作发现鲁棒模型的特征表示比标准模型的特征表示有几个优点。例如，对抗性鲁棒表示通常具有更好的梯度 [TSE+19; STT+19； ZZ19; KCL19]，从而促进无正则化特征可视化 [EIS+19b]。鲁棒表示也是近似可逆的 [EIS+19b]，这意味着与标准模型不同 [MV15; [DB16]，可以从其鲁棒性表示中近似直接重建图像（请参见图1b）。Engstrom等人假设通过强制网络对人类也不变的信号保持不变，稳健的训练目标会导致特征表示与人类使用的更相似。这表明，从迁移学习的角度来看，对抗性稳健性可能是一种可取的先验知识。本文就是想要研究对抗鲁棒性对于迁移学习的影响，解决这两个相互冲突的假设，为了解决这两个相互冲突的假设，使用12个标准迁移学习数据集的试验台来评估标准和不利稳健ImageNet模型上的固定特征传输。</p>
+<p><strong>相关工作</strong> </p>
+<ul>
+<li>最近，[ZSS+18] 提出了一种方法，当来自多个领域的标记数据可用时，可以提高迁移学习的效率。此外，研究了更好的 ImageNet 模型是否能更好地转移到其他数据集 [KSL19]。它显示了预训练 ImageNet 模型的传输精度（逻辑回归和微调设置）与这些模型在 ImageNet 上的 top-1 精度之间存在很强的相关性。最后，[KBZ+19] 使用大约 3 亿张噪声标记图像的海量数据探索了预训练，并展示了在 ImageNet 上针对多个任务进行预训练的迁移学习的改进。</li>
+<li>有几项工作研究了修改源数据集如何影响传输精度。 [ARS+15; HAE16] 研究了类数量与每类图像数量对学习更好的固定图像特征的重要性，这些工作得出了相互矛盾的结论 [KSL19]。</li>
+</ul>
 </li>
-<li><h5 id="How-are-the-experiments-designed-论文中的实验是如何设计的？"><a href="#How-are-the-experiments-designed-论文中的实验是如何设计的？" class="headerlink" title="How are the experiments designed? 论文中的实验是如何设计的？"></a>How are the experiments designed? 论文中的实验是如何设计的？</h5><p>在本文中，作者在不同的架构上训练了许多标准和健壮的ImageNet模型。这些模型适用于所有的迁移学习实验。作者用PyTorch的Torchvision2中的几个标准架构进行了实验。作者使用12个标准传输学习数据集来评估标准和不利稳健ImageNet模型上的固定特征传输，所有数据集都是在[KSL19]以及Caltech-256[GHP07]中的。作者考虑了四种基于ResNet的体系结构（ResNet-{18,50}，WideResNet-50-x{2,4}），并训练具有不同鲁棒性水平的模型ε对于每种体系结构，作者比较了标准模型和具有相同体系结构的最佳鲁棒模型。模型训练有一些固定的参数，作者使用batch size为512、动量为0.9、weight decay为1e-4的SGD来训练所有模型。作者训练90个阶段，初始学习率为0.1，每30个阶段下降10倍。对于标准训练，作者采用标准交叉熵多类分类损失。对于健壮性训练，作者使用对抗性训练[MMS+18]。作者训练对抗样本产生的最大允许扰动 $$l_{2}$$ of  ε∈ {0.01、0.03、0.05、0.1、0.25、0.5、1、3、5}以及最大允许扰动 $$l_{∞}$$ of  ε使用3个攻击步骤，每个攻击步骤步长为$$\frac{2 ε}{3}$$.</p>
-<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210601010146369.png" alt="image-20210601010146369" style="zoom:33%;">
+<li><h5 id="How-are-the-experiments-designed-论文中的实验是如何设计的？"><a href="#How-are-the-experiments-designed-论文中的实验是如何设计的？" class="headerlink" title="How are the experiments designed? 论文中的实验是如何设计的？"></a>How are the experiments designed? 论文中的实验是如何设计的？</h5><p>为了解决这两个相互矛盾的假设，作者使用了 12 个标准迁移学习数据集（[KSL19] 和 Caltech-256 [GHP07] 中考虑的所有数据集）的测试台来评估标准和对抗性鲁棒 ImageNet 模型上的固定特征迁移，考虑了四种基于 ResNet 的架构（ResNet-{18,50}、WideResNet-50-x{2,4}），并针对每种架构训练具有不同鲁棒性级别 ε 的模型。</p>
+<p><strong>模型结构</strong>  作者考虑了四种基于ResNet的体系结构（ResNet-{18,50}，WideResNet-50-x{2,4}），并训练具有不同鲁棒性水平的模型ε对于每种体系结构，作者比较了标准模型和具有相同体系结构的最佳鲁棒模型。</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210609204122633.png" alt="image-20210609204122633" style="zoom:35%;">
 
-<p>作者还对目标检测和实例分割进行了实验来验证鲁棒的模型在迁移学习中的表现。作者仅使用 Detectron25 的标准配置来训练模型。 对于 COCO 任务，计算限制使得无法从每个初始化中进行训练。 因而，作者使用降低的学习率计划（Detectron2 中相应的 1x 学习率计划）从每一个初始化开始训练，然后从前三个初始化（通过 Box AP）以及使用完整学习率训练计划（3x 计划）的标准模型进行训练。</p>
+<p><strong>训练细节</strong> 模型训练有一些固定的参数，作者使用batch size为512、动量为0.9、weight decay为1e-4的SGD来训练所有模型。作者训练90个阶段，初始学习率为0.1，每30个阶段下降10倍。对于标准训练，作者采用标准交叉熵多类分类损失。对于健壮性训练，作者使用对抗性训练[MMS+18]。作者训练对抗样本产生的最大允许扰动 $$l_{2}$$ of  ε∈ {0.01、0.03、0.05、0.1、0.25、0.5、1、3、5}以及最大允许扰动 $$l_{∞}$$ of  ε∈ {$$\frac{0.5}{255},\frac{1}{255},\frac{2}{255},\frac{4}{255},\frac{8}{255}$$}使用3个攻击步骤，每个攻击步骤步长为$$\frac{2 ε}{3}$$。</p>
+<p>在图 2 中，我们将标准模型的下游传输精度与具有相同架构的最佳稳健模型的下游传输精度进行了比较（在 ε上进行网格搜索）。 结果表明，与标准网络相比，稳健网络始终为迁移学习提取更好的特征——这种效果在 Aircraft、CIFAR-10、CIFAR-100、Food、SUN397 和 Caltech-101 上最为明显。 由于计算限制，我们无法在相同数量的鲁棒性级别 ε 下训练 WideResNet-50-4x 模型，因此使用了较粗的网格。 因此，对 ε 进行更精细的网格搜索可能会进一步改善结果。</p>
+<img src="/Users/mac/Library/Application Support/typora-user-images/image-20210609204723553.png" alt="image-20210609204723553" style="zoom:50%;">
 </li>
-<li><h5 id="What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？"><a href="#What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？" class="headerlink" title="What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？"></a>What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？</h5><img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531233156838.png" alt="image-20210531233156838" style="zoom:40%;">
+<li><h5 id="What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？"><a href="#What-datasets-are-built-used-for-the-quantitative-evaluation-Is-the-code-open-sourced-客观描述：用于定量评估的数据集是什么？代码有没有开源？" class="headerlink" title="What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？"></a>What datasets are built/used for the quantitative evaluation? Is the code open sourced? 客观描述：用于定量评估的数据集是什么？代码有没有开源？</h5><img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531233156838.png" alt="image-20210531233156838" style="zoom:30%;">
 
 <p>作者在[KSL19]中使用的分类数据集上测试从ImageNet预训练模型开始的迁移学习。这些数据集的大小因类和数据点的数量而异。</p>
-<p>代码已开源： <a href="https://github.com/Microsoft/robust-models-transfer" target="_blank" rel="noopener">https://github.com/Microsoft/robust-models-transfer</a></p>
+<p>对于这种类型的迁移学习，冻结 ImageNet 预训练模型的权重，并用一个随机初始化的适合迁移数据集的全连接层替换最后一个全连接层。 仅使用 SGD 训练这个新层 150 个 epoch，批大小为 64，动量为 0.9，权重衰减为 5e - 4，初始 LR ∈ {0.01, 0.001} 每 50 个 epoch 下降 10 倍 。</p>
+<p><strong>代码已开源</strong>： <a href="https://github.com/Microsoft/robust-models-transfer" target="_blank" rel="noopener">https://github.com/Microsoft/robust-models-transfer</a></p>
 </li>
 <li><h5 id="Is-the-scientific-hypothesis-well-supported-by-evidence-in-the-experiments-论文中的实验及结果有没有很好地支持需要验证的科学假设？"><a href="#Is-the-scientific-hypothesis-well-supported-by-evidence-in-the-experiments-论文中的实验及结果有没有很好地支持需要验证的科学假设？" class="headerlink" title="Is the scientific hypothesis well supported by evidence in the experiments?论文中的实验及结果有没有很好地支持需要验证的科学假设？"></a>Is the scientific hypothesis well supported by evidence in the experiments?论文中的实验及结果有没有很好地支持需要验证的科学假设？</h5><img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531234340123.png" alt="image-20210531234340123" style="zoom:30%;">
 
-<p>为了验证这一假设，作者首先研究了作者训练的每个稳健模型的ImageNet精度和传输精度之间的关系。作者发现，一旦稳健性方面发挥作用，先前观察到的准确度和传输性能之间的线性关系往往会被破坏。更直接地支持假设，即稳健性和ImageNet准确度对传输有不同的影响，作者发现，当稳健性水平保持不变时，标准模型的精度传递相关性实际上也适用于稳健性模型ε=3。因此，六种不同结构的模型精度较低，并将ImageNet的精度与迁移学习性能进行了比较。对于这些模型，提高ImageNet的准确度可以提高模型迁移性能，提高的准确率与标准模型相当（并且比标准模型具有更高的相关性）。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。除此之外，作者的研究结果还表明准确度并不能充分衡量特征质量，理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题，可能与以前分析这些网络使用的特性的工作有关。</p>
+<p>为了验证这一假设，作者首先研究了他训练的每个稳健模型的ImageNet精度和传输精度之间的关系。作者发现，一旦稳健性方面发挥作用，先前观察到的准确度和传输性能之间的线性关系往往会被破坏。更直接地支持假设，即稳健性和ImageNet准确度对传输有不同的影响，作者发现，当稳健性水平保持不变时，标准模型的精度传递相关性实际上也适用于稳健性模型ε=3。因此，六种不同结构的模型精度较低，并将ImageNet的精度与迁移学习性能进行了比较。对于这些模型，提高ImageNet的准确度可以提高模型迁移性能，提高的准确率与标准模型相当（并且比标准模型具有更高的相关性）。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。除此之外，作者的研究结果还表明准确度并不能充分衡量特征质量，理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题，可能与以前分析这些网络使用的特性的工作有关。</p>
 <img src="/Users/mac/Library/Application Support/typora-user-images/image-20210531234318900.png" alt="image-20210531234318900" style="zoom:30%;">
 
 <p>作者的实验还揭示了鲁棒模型和标准模型在传递性能随模型宽度变化方面的对比。虽然增加网络深度可以改善传输性能，但增加网络宽度会损害传输性能。随着宽度的增加，标准模型的传输性能平台和下降，但对于稳健的模型来说，仍在稳步增长。这表明与标准网络相比，扩展网络宽度可以进一步提高鲁棒网络的迁移性能。</p>
@@ -247,7 +262,8 @@
 
 <p>对于目标标检测和实例分割同样可以发现鲁棒的模型的迁移学习性能更强。</p>
 </li>
-<li><h5 id="What-are-the-contributions-of-the-paper-What-could-be-done-next"><a href="#What-are-the-contributions-of-the-paper-What-could-be-done-next" class="headerlink" title="What are the contributions of the paper? What could be done next?"></a>What are the contributions of the paper? What could be done next?</h5><p>在这项工作中使用对抗鲁棒模型的迁移学习，比较了鲁棒模型和标准模型在12个分类任务、目标检测和实例分割上的学习性能。实验结果表明，尽管ImageNet的精确度较低，但对抗性鲁棒神经网络的性能始终与标准神经网络的性能相匹配或提高。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。文章还进一步研究了对抗鲁棒网络的行为，并研究了ImageNet精度、模型宽度、鲁棒性和迁移性能之间的相互作用。虽然增加网络深度可以改善传输性能，但增加网络宽度会损害传输性能。随着宽度的增加，标准模型的传输性能平台和下降，但对于稳健的模型来说，仍在稳步增长。这表明与标准网络相比，扩展网络宽度可以进一步提高鲁棒网络的迁移性能。本文偏重实验着重从实验的角度出发告诉了我们这样一个理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题。下一步研究可以着重从理论的角度去解释为什么健壮的网络迁移效果比较好。</p>
+<li><h5 id="What-are-the-contributions-of-the-paper-What-could-be-done-next"><a href="#What-are-the-contributions-of-the-paper-What-could-be-done-next" class="headerlink" title="What are the contributions of the paper? What could be done next?"></a>What are the contributions of the paper? What could be done next?</h5><p>在这项工作中使用对抗鲁棒模型的迁移学习，比较了鲁棒模型和标准模型在12个分类任务、目标检测和实例分割上的学习性能。实验结果表明，尽管ImageNet的精确度较低，但对抗性鲁棒神经网络的性能始终与标准神经网络的性能相匹配或提高。这些观察结果表明，可以通过应用提高鲁棒模型准确度的已知技术来进一步提高迁移学习性能（如[BGH19；CRS+19]）。</p>
+<p>文章还进一步研究了对抗鲁棒网络的行为，并研究了ImageNet精度、模型宽度、鲁棒性和迁移性能之间的相互作用。虽然增加网络深度可以改善传输性能，但增加网络宽度会损害传输性能。随着宽度的增加，标准模型的传输性能平台和下降，但对于稳健的模型来说，仍在稳步增长。这表明与标准网络相比，扩展网络宽度可以进一步提高鲁棒网络的迁移性能。本文偏重实验着重从实验的角度出发告诉了我们这样一个理解为什么健壮的网络传输特别好仍然是一个悬而未决的问题。下一步研究可以着重从理论的角度去解释为什么健壮的网络迁移效果比较好。</p>
 </li>
 </ul>
 
