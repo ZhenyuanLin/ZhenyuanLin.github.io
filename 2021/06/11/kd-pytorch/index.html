@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhenyuanlin.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="KD Pytorch">
+<meta name="keywords" content="ECNU CV DeepLearning ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KD Pytorch">
+<meta property="og:url" content="https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/index.html">
+<meta property="og:site_name" content="Zhenyuan Lin">
+<meta property="og:description" content="KD Pytorch">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-06-11T14:06:58.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KD Pytorch">
+<meta name="twitter:description" content="KD Pytorch">
+
+<link rel="canonical" href="https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'default'
+  };
+</script>
+
+  <title>KD Pytorch | Zhenyuan Lin</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Zhenyuan Lin</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhenyuan Lin">
+      <meta itemprop="description" content="ECNU | Computer Science | CV">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyuan Lin">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          KD Pytorch
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-11 22:07:33 / Modified: 22:06:58" itemprop="dateCreated datePublished" datetime="2021-06-11T22:07:33+08:00">2021-06-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>KD Pytorch</p>
+<a id="more"></a>
+
+<h4 id="KD-Pytorch"><a href="#KD-Pytorch" class="headerlink" title="KD Pytorch"></a>KD Pytorch</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">import</span> CrossEntropyLoss
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> TensorDataset<span class="token punctuation">,</span>DataLoader<span class="token punctuation">,</span>SequentialSampler
+
+<span class="token keyword">class</span> <span class="token class-name">model</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>input_dim<span class="token punctuation">,</span>hidden_dim<span class="token punctuation">,</span>output_dim<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span>model<span class="token punctuation">,</span>self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>layer1 <span class="token operator">=</span> nn<span class="token punctuation">.</span>LSTM<span class="token punctuation">(</span>input_dim<span class="token punctuation">,</span>hidden_dim<span class="token punctuation">,</span>output_dim<span class="token punctuation">,</span>batch_first <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>layer2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>hidden_dim<span class="token punctuation">,</span>output_dim<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        layer1_output<span class="token punctuation">,</span>layer1_hidden <span class="token operator">=</span> self<span class="token punctuation">.</span>layer1<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+        layer2_output <span class="token operator">=</span> self<span class="token punctuation">.</span>layer2<span class="token punctuation">(</span>layer1_output<span class="token punctuation">)</span>
+        layer2_output <span class="token operator">=</span> layer2_output<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#取出一个batch中每个句子最后一个单词的输出向量即该句子的语义向量！！！！！！！!！</span>
+        <span class="token keyword">return</span> layer2_output
+
+<span class="token comment" spellcheck="true">#建立小模型</span>
+model_student <span class="token operator">=</span> model<span class="token punctuation">(</span>input_dim <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>hidden_dim <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">,</span>output_dim <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#建立大模型（此处仍然使用LSTM代替，可以使用训练好的BERT等复杂模型）</span>
+model_teacher <span class="token operator">=</span> model<span class="token punctuation">(</span>input_dim <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>hidden_dim <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span>output_dim <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#设置输入数据，此处只使用随机生成的数据代替</span>
+inputs <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+true_label <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#生成dataset</span>
+dataset <span class="token operator">=</span> TensorDataset<span class="token punctuation">(</span>inputs<span class="token punctuation">,</span>true_label<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#生成dataloader</span>
+sampler <span class="token operator">=</span> SequentialSampler<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+dataloader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>dataset <span class="token operator">=</span> dataset<span class="token punctuation">,</span>sampler <span class="token operator">=</span> sampler<span class="token punctuation">,</span>batch_size <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+loss_fun <span class="token operator">=</span> CrossEntropyLoss<span class="token punctuation">(</span><span class="token punctuation">)</span>
+criterion  <span class="token operator">=</span> nn<span class="token punctuation">.</span>KLDivLoss<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#KL散度</span>
+optimizer <span class="token operator">=</span> torch<span class="token punctuation">.</span>optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>model_student<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lr <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">,</span>momentum <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#优化器，优化器中只传入了学生模型的参数，因此此处只对学生模型进行参数更新，正好实现了教师模型参数不更新的目的</span>
+
+<span class="token keyword">for</span> step<span class="token punctuation">,</span>batch <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>dataloader<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    inputs <span class="token operator">=</span> batch<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    labels <span class="token operator">=</span> batch<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true">#分别使用学生模型和教师模型对输入数据进行计算</span>
+    output_student <span class="token operator">=</span> model_student<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+    output_teacher <span class="token operator">=</span> model_teacher<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#计算学生模型预测结果和教师模型预测结果之间的KL散度</span>
+    loss_soft <span class="token operator">=</span> criterion<span class="token punctuation">(</span>output_student<span class="token punctuation">,</span>output_teacher<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#计算学生模型和真实标签之间的交叉熵损失函数值</span>
+    loss_hard <span class="token operator">=</span> loss_fun<span class="token punctuation">(</span>output_student<span class="token punctuation">,</span>labels<span class="token punctuation">)</span>
+
+    loss <span class="token operator">=</span> <span class="token number">0.9</span><span class="token operator">*</span>loss_soft <span class="token operator">+</span> <span class="token number">0.1</span><span class="token operator">*</span>loss_hard
+    <span class="token keyword">print</span><span class="token punctuation">(</span>loss<span class="token punctuation">)</span>
+    optimizer<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/05/rethink-overfitting-overfitting-de-chuan-tong-he-xian-dai-guan-dian-you-shi-me-bu-tong-ni/" rel="prev" title="Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？">
+      <i class="fa fa-chevron-left"></i> Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#KD-Pytorch"><span class="nav-number">1.</span> <span class="nav-text">KD Pytorch</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zhenyuan Lin</p>
+  <div class="site-description" itemprop="description">ECNU | Computer Science | CV</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhenyuan Lin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

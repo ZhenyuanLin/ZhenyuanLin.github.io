@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/</loc>
+    
+    <lastmod>2021-06-11T14:06:58.231Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/</loc>
     
     <lastmod>2021-06-09T13:04:10.618Z</lastmod>
@@ -51,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://zhenyuanlin.github.io/categories/index.html</loc>
+    <loc>https://zhenyuanlin.github.io/archives/index.html</loc>
     
     <lastmod>2021-01-18T22:08:58.000Z</lastmod>
     
@@ -65,14 +72,7 @@
   </url>
   
   <url>
-    <loc>https://zhenyuanlin.github.io/friends/index.html</loc>
-    
-    <lastmod>2021-01-18T22:08:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhenyuanlin.github.io/archives/index.html</loc>
+    <loc>https://zhenyuanlin.github.io/categories/index.html</loc>
     
     <lastmod>2021-01-18T22:08:58.000Z</lastmod>
     
@@ -80,6 +80,13 @@
   
   <url>
     <loc>https://zhenyuanlin.github.io/contact/index.html</loc>
+    
+    <lastmod>2021-01-18T22:08:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhenyuanlin.github.io/friends/index.html</loc>
     
     <lastmod>2021-01-18T22:08:58.000Z</lastmod>
     

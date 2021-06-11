@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhenyuanlin.github.io/"/>
-  <updated>2021-06-05T13:57:28.158Z</updated>
+  <updated>2021-06-11T14:06:58.231Z</updated>
   <id>https://zhenyuanlin.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KD Pytorch</title>
+    <link href="https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/"/>
+    <id>https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/</id>
+    <published>2021-06-11T14:07:33.000Z</published>
+    <updated>2021-06-11T14:06:58.231Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;KD Pytorch&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://zhenyuanlin.github.io/categories/Machine-Learning/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Rethink Overfitting：Overfitting 的传统和现代观点有什么不同呢？</title>
