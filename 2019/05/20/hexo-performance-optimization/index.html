@@ -416,7 +416,7 @@
 
   
 
-  <a href="https://github.com/ZhenyuanLin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+  <a href="https://github.com/ZhenyuanLin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
 
 
 
@@ -549,12 +549,8 @@
 
 <p>首先，可利用 <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">Google PageSpeed Insights</a> 帮助分析网页加载速度，根据报告结果和优化建议进行针对性的优化。<br>常见的网站提速方案有：cdn加速，压缩源文件，nginx gzip压缩，减少网站一些不必要的引入，图片大小等。</p>
 <h3 id="CDN加速"><a href="#CDN加速" class="headerlink" title="CDN加速"></a>CDN加速</h3><p>在阅读下文之前，如果你还不知道 CDN 是什么，请先移步<a href="https://baike.baidu.com/item/CDN" target="_blank" rel="noopener">百度百科：CDN词条</a> 进行一些了解。<br>在所有静态资源中，对加载速度影响较大且存在大幅优化空间的主要还是「JavaScript 第三方库」脚本，设定成合适的 CDN 地址，此特性可以加速静态资源的加载。<br>对于我 Hexo 博客来说，NexT 主题已经做好了配置，只需添加 CDN 加载源，将其改为从公共 CDN 加载即可。<br>在 <span id="inline-purple">主题配置文件</span> _config.yml 中修改<code>vendors</code>：</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml">  <span class="token comment" spellcheck="true"># Example:</span>
-  <span class="token comment" spellcheck="true"># jquery: //cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js</span>
-  <span class="token comment" spellcheck="true"># jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js</span>
-  <span class="token key atrule">jquery</span><span class="token punctuation">:</span> //cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example:</span></span><br><span class="line"><span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js</span></span><br><span class="line"><span class="comment"># jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js</span></span><br><span class="line"><span class="attr">jquery:</span> <span class="string">//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js</span></span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
 
-  <span class="token punctuation">...</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>比较常用的开源项目 CDN 服务商主要有 unpkg、bootcdn、 cdnjs、jsdelivr 和 cloudflare，本站主要使用 jsdelivr 提供的 CDN 加速服务。</p>
 <h3 id="上云"><a href="#上云" class="headerlink" title="上云"></a>上云</h3><div class="note info">
             <p>国内的 CDN服务 要求网站必须备案，但是有些服务商是不支持备案的，于是云主机就是我们需要的了，可以一键备案直接上云。</p>
@@ -653,44 +649,11 @@
           </div>
 
 <h4 id="开启gzip"><a href="#开启gzip" class="headerlink" title="开启gzip"></a>开启gzip</h4><p>gzip压缩页面需要浏览器和服务器双方都支持，实际上就是服务器端压缩，传到浏览器后浏览器解压并解析。<br>修改nginx.conf，在http模块中增加gzip配置：</p>
-<pre class="line-numbers language-html"><code class="language-html">  #开启gzip压缩;
-  gzip  on;
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#开启gzip压缩;</span><br><span class="line">gzip  on;</span><br><span class="line"></span><br><span class="line">#设置允许压缩的页面最小字节数;</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line"></span><br><span class="line">#设置压缩缓冲区大小，此处设置为4个16K内存作为压缩结果流缓存</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line"></span><br><span class="line">#压缩版本</span><br><span class="line">gzip_http_version 1.1;</span><br><span class="line"></span><br><span class="line">#设置压缩比率，最小为1，处理速度快，传输速度慢；9为最大压缩比，处理速度慢，传输速度快;级别越高，压缩就越小</span><br><span class="line">gzip_comp_level 6;</span><br><span class="line"></span><br><span class="line">#制定压缩的类型</span><br><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/javascript application/json image/svg+xml application/x-font-ttf font/opentype image/x-icon;</span><br><span class="line"></span><br><span class="line">#配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）</span><br><span class="line">gzip_disable "MSIE [1-6]\.";</span><br><span class="line"></span><br><span class="line">#选择支持vary header；改选项可以让前端的缓存服务器缓存经过gzip压缩的页面; 这个可以不写</span><br><span class="line">gzip_vary on;</span><br></pre></td></tr></table></figure>
 
-  #设置允许压缩的页面最小字节数;
-  gzip_min_length 1k;
-
-  #设置压缩缓冲区大小，此处设置为4个16K内存作为压缩结果流缓存
-  gzip_buffers 4 16k;
-
-  #压缩版本
-  gzip_http_version 1.1;
-
-  #设置压缩比率，最小为1，处理速度快，传输速度慢；9为最大压缩比，处理速度慢，传输速度快;级别越高，压缩就越小
-  gzip_comp_level 6;
-
-  #制定压缩的类型
-  gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/javascript application/json image/svg+xml application/x-font-ttf font/opentype image/x-icon;
-
-  #配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）
-  gzip_disable "MSIE [1-6]\.";
-
-  #选择支持vary header；改选项可以让前端的缓存服务器缓存经过gzip压缩的页面; 这个可以不写
-  gzip_vary on;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="开启缓存"><a href="#开启缓存" class="headerlink" title="开启缓存"></a>开启缓存</h4><p>修改nginx.conf，在server中配置缓存和失效时间：</p>
-<pre class="line-numbers language-html"><code class="language-html">location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ {
-    access_log off;
-    expires 30d;
-}
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ &#123;</span><br><span class="line">    access_log off;</span><br><span class="line">    expires 30d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</span><br><span class="line">    access_log off;</span><br><span class="line">    expires 24h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* ^.+\.(html|htm)$ &#123;</span><br><span class="line">     expires 1h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
-    access_log off;
-    expires 24h;
-}
-
-location ~* ^.+\.(html|htm)$ {
-     expires 1h;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><div class="note info">
             <p>目前各大云服务商都提供了对象存储服务，如七牛云 QINIU、又拍云 USS、腾讯云 COS、阿里云 OSS 等。我们可以使用这些服务器来存储图片信息，并将其称为图床。</p>
           </div>

@@ -222,7 +222,7 @@
 &lt;li&gt;站内搜索&lt;/li&gt;
 &lt;li&gt;文章推荐&lt;/li&gt;
 &lt;li&gt;Valine评论&lt;/li&gt;
-&lt;li&gt;图片灯箱&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;图片灯箱
     
     </summary>
     
@@ -252,7 +252,7 @@
 &lt;li&gt;链接样式、底部标签样式&lt;/li&gt;
 &lt;li&gt;图片尺寸处理&lt;/li&gt;
 &lt;li&gt;代码块复制、显示和隐藏&lt;/li&gt;
-&lt;li&gt;草稿和发布&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;草稿和发布
     
     </summary>
     
@@ -363,7 +363,7 @@
 &lt;li&gt;因此业务的接口需要具备通用性，可供&lt;strong&gt;多端多应用多场景&lt;/strong&gt;使用，这对各位的设计能力来讲是一个考验（易用性、通用性、易拓展易维护）。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;服务层被共享使用，会带来一些其它的&lt;strong&gt;挑战&lt;/strong&gt;，比如业务并发压力等，考虑到性能、伸缩性、可用性和与Spring结合使用的技术成本，我们选择阿里的开源服务框架dubbo来解决这些问题，&lt;br&gt; 由dubbo来提供服务治理功能，dubbo-api 提供接口，dubbo-service 提供业务服务。&lt;br&gt; &lt;code&gt;ps：对于dubbo框架不了解的同学可以学习 http://dubbo.wangxingrong.com/User+Guide-zh.htm&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;服务层被共享使用，会带来一些其它的&lt;strong&gt;挑战&lt;/strong&gt;，比如业务并发压力等，考虑到性能、伸缩性、可用性和与Spring结合使用的技术成本，我们选择阿里的开源服务框架dubbo来解决这些问题，&lt;br&gt; 由dubbo来提供服务治理功能，dubbo-api 提供接口，dubbo-service 提供业务服务。&lt;br&gt; &lt;code&gt;ps：对于dubbo框架不了解的同学可以学习 http://dubbo.wangxingrong.com/User+Guide-zh.htm&lt;/code&gt;
     
     </summary>
     
@@ -466,7 +466,7 @@
 &lt;td&gt;yyyyMMddHHmmss&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;td align=&quot;center&quot;&gt;
     
     </summary>
     
@@ -489,7 +489,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;Q-返回值-code-400405&quot;&gt;&lt;a href=&quot;#Q-返回值-code-400405&quot; class=&quot;headerlink&quot; title=&quot;Q : 返回值 code 400405&quot;&gt;&lt;/a&gt;Q : 返回值 &lt;em&gt;code&lt;/em&gt; 400405&lt;/h4&gt;&lt;p&gt;&lt;em&gt;A&lt;/em&gt; : GET/POST请求使用错误。 &lt;/p&gt;
-&lt;h4 id=&quot;Q-消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;a href=&quot;#Q-消费者调用了别人的提供者服务，导致调试困难&quot; class=&quot;headerlink&quot; title=&quot;Q : 消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;/a&gt;Q : 消费者调用了别人的提供者服务，导致调试困难&lt;/h4&gt;&lt;p&gt;&lt;em&gt;A&lt;/em&gt; : 这是怎么造成的呢？&lt;/p&gt;
+&lt;h4 id=&quot;Q-消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;a href=&quot;#Q-消费者调用了别人的提供者服务，导致调试困难&quot; class=&quot;headerlink&quot; title=&quot;Q : 消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;/a&gt;Q : 消费者调用了别人的提供者服务，导致调试困难&lt;/h4&gt;&lt;p&gt;&lt;em&gt;A&lt;/em&gt; : 这是怎么造成的呢？
     
     </summary>
     
@@ -515,7 +515,7 @@
 &lt;li&gt;技术选型落地，规范开发流程和项目结构&lt;/li&gt;
 &lt;li&gt;在&lt;code&gt;pom.xml&lt;/code&gt;里预定义常用开源组件依赖版本&lt;/li&gt;
 &lt;li&gt;拦截&lt;code&gt;Response&lt;/code&gt;的返回值，自动封装成 &lt;a href=&quot;https://ws1.sinaimg.cn/large/006tNc79ly1g2jvhtn6yqj30ts0l8tb1.jpg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Result&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;拦截&lt;code&gt;RuntimeException&lt;/code&gt;异常，统一处理自动封装&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;拦截&lt;code&gt;RuntimeException&lt;/code&gt;异常，统一处理自动封装
     
     </summary>
     
