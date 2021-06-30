@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zhenyuan Lin</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zhenyuanlin.github.io/"/>
+  <updated>2021-04-10T20:41:06.000Z</updated>
+  <id>https://zhenyuanlin.github.io/</id>
+  
+  <author>
+    <name>Zhenyuan Lin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IM云服务商技术调研</title>
+    <link href="https://zhenyuanlin.github.io/2020/06/10/im-providers-research/"/>
+    <id>https://zhenyuanlin.github.io/2020/06/10/im-providers-research/</id>
+    <published>2020-06-10T02:12:30.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;IM（全称是『Instant Messaging』，中文名是即时通讯），在互联网时代沟通显得尤为重要，而IM是偏底层通讯协议的技术，自研的话开发成本较高。但是市场上有较多成熟的服务提供商，我们可以从中选择一家符合需求且成本低廉的产品。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://zhenyuanlin.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="IM" scheme="https://zhenyuanlin.github.io/tags/IM/"/>
+    
+      <category term="即时通讯" scheme="https://zhenyuanlin.github.io/tags/%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/"/>
+    
+      <category term="融云" scheme="https://zhenyuanlin.github.io/tags/%E8%9E%8D%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS VPN(Cisco IPSec)断线解决办法</title>
+    <link href="https://zhenyuanlin.github.io/2020/05/19/macos-vpn-disconnection-resolve/"/>
+    <id>https://zhenyuanlin.github.io/2020/05/19/macos-vpn-disconnection-resolve/</id>
+    <published>2020-05-19T12:12:02.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在很多VPN客户端都是不支持Mac的，所以更多的时候我们需要使用Mac系统内置的&lt;code&gt;IPsec VPN&lt;/code&gt;客户端工具去连接。&lt;/p&gt;
+&lt;p&gt;但是在链接 Cisco VPN 服务器后，一般每隔45分钟到一小时就会自动断线，这无疑是令人沮丧的。虽然说这是Mac系统为了电脑的安全性所做的考虑，但是实际使用时可能会很不方便。&lt;/p&gt;
+&lt;p&gt;本文章将介绍一种的解决方法来让 VPN 客户端正常连接不断线。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Mac" scheme="https://zhenyuanlin.github.io/categories/Mac/"/>
+    
+    
+      <category term="Mac" scheme="https://zhenyuanlin.github.io/tags/Mac/"/>
+    
+      <category term="VPN" scheme="https://zhenyuanlin.github.io/tags/VPN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx开机自启动服务</title>
+    <link href="https://zhenyuanlin.github.io/2020/03/09/nginx-auto-start-service/"/>
+    <id>https://zhenyuanlin.github.io/2020/03/09/nginx-auto-start-service/</id>
+    <published>2020-03-09T12:16:08.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在我们在Linux搭建程序服务的过程中有时会有开关机的需要，所以不少服务（比如：Nginx、数据库等）都需要重新开启，有什么好的方式来让机器自动启动代替人工呢？&lt;br&gt;本文章将介绍一种比较通用且简单的方式：在 &lt;code&gt;/etc/init.d&lt;/code&gt; 里配置启动脚本实现开机自启动。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://zhenyuanlin.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Nginx" scheme="https://zhenyuanlin.github.io/tags/Nginx/"/>
+    
+      <category term="Linux" scheme="https://zhenyuanlin.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>App如何识别身份证号码</title>
+    <link href="https://zhenyuanlin.github.io/2019/11/28/idcard-secret/"/>
+    <id>https://zhenyuanlin.github.io/2019/11/28/idcard-secret/</id>
+    <published>2019-11-28T12:13:31.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在的网络中对实名要求越来越高，日常使用App时都会有输入身份证号码进行身份验证的环节。有的时候按照自己身份证的格式随便改下几位数字想蒙混过关，不想直接被系统识别号码错误了，他们是怎么验证的？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实名验证的渠道有很多，比如银行渠道、公安部渠道等，往往都是收费的。在发往这些渠道进行实名验证之前，是不是可以先对身份证的格式正确性进行验证，这样能够适当提高收费验证的成功率，节省成本支出；而且也可以提升用户体验，在用户输入错误时及时反馈而不必等待验证结果的返回。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文章将实际探究一下身份证号码的校验计算方法以及两代身份证的差异情况。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://zhenyuanlin.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="身份证" scheme="https://zhenyuanlin.github.io/tags/%E8%BA%AB%E4%BB%BD%E8%AF%81/"/>
+    
+      <category term="工具" scheme="https://zhenyuanlin.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - 条件化注解Conditional</title>
+    <link href="https://zhenyuanlin.github.io/2019/06/17/spring-boot-autowired-by-condition/"/>
+    <id>https://zhenyuanlin.github.io/2019/06/17/spring-boot-autowired-by-condition/</id>
+    <published>2019-06-17T15:43:32.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在我们的实际业务开发过程中，往往会有这样的场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一套接口中有多种不同的实现，但在不同的场景下需使用指定的实现方式（比如微信小程序里仅仅支持微信支付）&lt;/li&gt;
+&lt;li&gt;在集群环境里，存在一个定时任务，定时任务不可重复执行，因此需限制只在一个节点中执行，其他节点不执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;常规思路中要实现以上的场景需求还是比较麻烦的，可能需要硬编码做 &lt;strong&gt;if&lt;/strong&gt; 或者 &lt;strong&gt;swith&lt;/strong&gt; 的判断，亦或是使用控制路由在调用的代码里做选择初始化。这些方式都不够优雅，也增强了组件间的耦合性！！！&lt;br&gt;现在SpringBoot里有了 &lt;code&gt;@Conditional&lt;/code&gt;注解 和 &lt;code&gt;@ConditionalOnProperty&lt;/code&gt;注解，将变得简单许多。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="https://zhenyuanlin.github.io/categories/Spring-Boot/"/>
+    
+    
+      <category term="Spring" scheme="https://zhenyuanlin.github.io/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="https://zhenyuanlin.github.io/tags/SpringBoot/"/>
+    
+      <category term="Conditional" scheme="https://zhenyuanlin.github.io/tags/Conditional/"/>
+    
+      <category term="ConditionalOnProperty" scheme="https://zhenyuanlin.github.io/tags/ConditionalOnProperty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - 配置文件外置</title>
+    <link href="https://zhenyuanlin.github.io/2019/06/12/spring-boot-configure-external/"/>
+    <id>https://zhenyuanlin.github.io/2019/06/12/spring-boot-configure-external/</id>
+    <published>2019-06-12T10:44:33.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Boot启动会加载大量的自动配置类，相比以前 XML 的配置方式，很多显式方式申明是不需要的，从而可以更快速的开发。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot的配置文件有两种：&lt;em&gt;&lt;em&gt;.properties &lt;em&gt;&lt;em&gt;文件和 &lt;/em&gt;&lt;/em&gt;.yml &lt;/em&gt;&lt;/em&gt;文件。&lt;br&gt;使用固定的 &lt;code&gt;application.properties&lt;/code&gt; 或者 &lt;code&gt;application.yml&lt;/code&gt; 文件做为全局的配置文件，启动时会扫描它们作为默认配置文件。&lt;/p&gt;
+&lt;p&gt;在很多场景下，我们需要去修改配置文件，如：端口、数据库地址等等。把所有配置全都打在包里，显然不是最好的做法，更常见的做法是把配置文件放在外面，可以在需要时不动代码的前提下修改配置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文章将介绍如何自定义Sping Boot配置文件的位置，特别是war包运行在独立tomcat下时如何在外部配置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="https://zhenyuanlin.github.io/categories/Spring-Boot/"/>
+    
+    
+      <category term="Spring" scheme="https://zhenyuanlin.github.io/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="https://zhenyuanlin.github.io/tags/SpringBoot/"/>
+    
+      <category term="property" scheme="https://zhenyuanlin.github.io/tags/property/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT(v7.0+) 搭建博客：性能优化</title>
+    <link href="https://zhenyuanlin.github.io/2019/05/20/hexo-performance-optimization/"/>
+    <id>https://zhenyuanlin.github.io/2019/05/20/hexo-performance-optimization/</id>
+    <published>2019-05-20T09:15:23.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在访问很多博客的时候，页面加载和响应速度往往都要上十秒，严重影响用户的体验。&lt;br&gt;本文将探究如何利用常用的方案来进行性能优化，主要包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CDN加速&lt;/li&gt;
+&lt;li&gt;Nginx压缩、缓存&lt;/li&gt;
+&lt;li&gt;图床&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="https://zhenyuanlin.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://zhenyuanlin.github.io/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="https://zhenyuanlin.github.io/tags/NexT/"/>
+    
+      <category term="阿里云" scheme="https://zhenyuanlin.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+      <category term="七牛云" scheme="https://zhenyuanlin.github.io/tags/%E4%B8%83%E7%89%9B%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT(v7.0+) 搭建博客：功能强化</title>
+    <link href="https://zhenyuanlin.github.io/2019/05/19/hexo-function-optimization/"/>
+    <id>https://zhenyuanlin.github.io/2019/05/19/hexo-function-optimization/</id>
+    <published>2019-05-19T14:08:03.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://image.chingow.cn/background/20190602023505_JefG9q_6DE1E34E-037D-4EA6-A8CC-68280E0EAC1D-1264-00000122BCC398FB_tmp.jpeg&quot; alt=&quot;Photo in Chongqing Fengjie&quot; title=&quot;Photo in Chongqing Fengjie&quot;&gt;&lt;/p&gt;
+&lt;p&gt;开源的力量让第三方插件的支持越来越多，本文介绍了在如何利用插件来加强网站的功能，主要包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分类时间线&lt;/li&gt;
+&lt;li&gt;DaoVoice&lt;/li&gt;
+&lt;li&gt;站内搜索&lt;/li&gt;
+&lt;li&gt;文章推荐&lt;/li&gt;
+&lt;li&gt;Valine评论&lt;/li&gt;
+&lt;li&gt;图片灯箱&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="https://zhenyuanlin.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://zhenyuanlin.github.io/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="https://zhenyuanlin.github.io/tags/NexT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT(v7.0+) 搭建博客：内容优化</title>
+    <link href="https://zhenyuanlin.github.io/2019/05/18/hexo-content-optimization/"/>
+    <id>https://zhenyuanlin.github.io/2019/05/18/hexo-content-optimization/</id>
+    <published>2019-05-18T08:08:13.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NexT主题内提供了很多功能来让内容更加丰富，本文介绍了如何开启和定制这些功能，主要包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模板设置&lt;/li&gt;
+&lt;li&gt;文章发布修改时间、字数统计&lt;/li&gt;
+&lt;li&gt;文章版权声明&lt;/li&gt;
+&lt;li&gt;链接样式、底部标签样式&lt;/li&gt;
+&lt;li&gt;图片尺寸处理&lt;/li&gt;
+&lt;li&gt;代码块复制、显示和隐藏&lt;/li&gt;
+&lt;li&gt;草稿和发布&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="https://zhenyuanlin.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://zhenyuanlin.github.io/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="https://zhenyuanlin.github.io/tags/NexT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT(v7.0+) 搭建博客：主题美化</title>
+    <link href="https://zhenyuanlin.github.io/2019/05/17/hexo-theme-beautifed/"/>
+    <id>https://zhenyuanlin.github.io/2019/05/17/hexo-theme-beautifed/</id>
+    <published>2019-05-17T02:07:53.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文介绍了在 NexT(v7.0+) 主题的基础上整体布局美化的方案，主要包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Font：字体、动态背景canvas_ribbon&lt;/li&gt;
+&lt;li&gt;Top：进度条、Follow me、菜单背景收缩&lt;/li&gt;
+&lt;li&gt;Footer：备案显示、运行时间、访客统计&lt;/li&gt;
+&lt;li&gt;Sidebar：近期文章、浏览进度、左边显示、目录展开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大家可以选择喜欢的方案美化自己的博客，当然最好可以再加入点自己的想法改造。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="https://zhenyuanlin.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://zhenyuanlin.github.io/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="https://zhenyuanlin.github.io/tags/NexT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT(v7.0+) 搭建博客：基础安装</title>
+    <link href="https://zhenyuanlin.github.io/2019/04/29/hexo-satrted/"/>
+    <id>https://zhenyuanlin.github.io/2019/04/29/hexo-satrted/</id>
+    <published>2019-04-29T14:16:23.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://image.chingow.cn/background/006tNc79gy1g37jxk0kq5j327a0ki0th.jpg&quot; alt=&quot;Hexo&quot; title=&quot;Hexo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;关于如何搭建Hexo博客的文章已经有很多人写过了，并且有很多人已经写的很深刻很到位了，为什么还要重复写一遍呢？直到我看到了这位同学的博客 &lt;a href=&quot;yearito.cn&quot;&gt;yearito&lt;/a&gt; &lt;strong&gt;（ ps：本站的建站优化大都参考自这里）&lt;/strong&gt; ，我有了说服自己的理由：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你可以参考别人的技术方案，集众所长，亲自实践，然后融入自己的思考写出一篇新文章&lt;/li&gt;
+&lt;li&gt;即使并没有做出创新性的贡献，自己重新归纳一遍也有助于梳理流程，深化理解&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="博客" scheme="https://zhenyuanlin.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://zhenyuanlin.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 01.框架介绍</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-introduction/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-introduction/</id>
+    <published>2018-04-18T07:30:02.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;框架的意义在于提高开发效率，统一开发模式，规范编码，减少重复工作，降低出错，提供必要的公共功能，同时需要易于集成、便于维护。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在搭建项目之时，需要引入依赖、配置框架，通常一些开源组件和配置不同版本之间会出现冲突问题。&lt;br&gt;前端的模版化引擎会统一渲染接口返回值，这就要求服务端需要对异常信息和响应结果进行统一封装。&lt;br&gt;为了加快项目开发进度还需要封装一些常用的类和工具包，比如 &lt;em&gt;App Session&lt;/em&gt;管理、接口签名认证、参数验证、常用类型转换等等，有了这些项目才能正常开工。&lt;br&gt;&lt;br&gt;然而，下次再做类似的项目上述步骤可能还要重来一遍，虽然通常是拿来copy再改改，但是还是比较浪费时间的。&lt;br&gt;所以可以利用面向对象抽象的思想，抽取这类项目的共同之处封装成了种子项目，再开发类似项目时可以直接在此之上迭代，减少无意义的重复工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Spring" scheme="https://zhenyuanlin.github.io/tags/Spring/"/>
+    
+      <category term="Dubbo" scheme="https://zhenyuanlin.github.io/tags/Dubbo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 02.开发指南</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-development-guide/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-development-guide/</id>
+    <published>2018-04-18T07:20:27.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;设计思想&quot;&gt;&lt;a href=&quot;#设计思想&quot; class=&quot;headerlink&quot; title=&quot;设计思想&quot;&gt;&lt;/a&gt;设计思想&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;一个大型的分布式系统一般会包含多个应用，各个应用包含多端展现（&lt;code&gt;移动端、wx端、web门户、后台管理&lt;/code&gt;），而且应用之间往往还存在共同的业务（&lt;code&gt;上传、评论、支付、搜索&lt;/code&gt;），应用之间还会存在调用关系等。&lt;br&gt; 因此，为了使业务得到很好的复用，模块更加容易拓展和维护，我们希望业务与应用分离。&lt;/li&gt;
+&lt;li&gt;应用层只包含前端展现和路由接口，服务层来实现具体业务，以供多端在不同场景下展现。&lt;ul&gt;
+&lt;li&gt;因此业务的接口需要具备通用性，可供&lt;strong&gt;多端多应用多场景&lt;/strong&gt;使用，这对各位的设计能力来讲是一个考验（易用性、通用性、易拓展易维护）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;服务层被共享使用，会带来一些其它的&lt;strong&gt;挑战&lt;/strong&gt;，比如业务并发压力等，考虑到性能、伸缩性、可用性和与Spring结合使用的技术成本，我们选择阿里的开源服务框架dubbo来解决这些问题，&lt;br&gt; 由dubbo来提供服务治理功能，dubbo-api 提供接口，dubbo-service 提供业务服务。&lt;br&gt; &lt;code&gt;ps：对于dubbo框架不了解的同学可以学习 http://dubbo.wangxingrong.com/User+Guide-zh.htm&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="设计" scheme="https://zhenyuanlin.github.io/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 03.开发说明</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-development-description/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-development-description/</id>
+    <published>2018-04-18T07:16:26.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇主要讲解项目的基本结构以及各个主要功能点的开发示例。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于本项目主要使用阿里的&lt;code&gt;Dubbo&lt;/code&gt;来做为开发架构，因此也可用于Dubbo开发者学习。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Dubbo" scheme="https://zhenyuanlin.github.io/tags/Dubbo/"/>
+    
+      <category term="开发" scheme="https://zhenyuanlin.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 04.接口说明</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-interface-description/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-interface-description/</id>
+    <published>2018-04-18T07:11:31.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;工具接口说明&quot;&gt;&lt;a href=&quot;#工具接口说明&quot; class=&quot;headerlink&quot; title=&quot;工具接口说明&quot;&gt;&lt;/a&gt;工具接口说明&lt;/h3&gt;&lt;h4 id=&quot;DateUtil&quot;&gt;&lt;a href=&quot;#DateUtil&quot; class=&quot;headerlink&quot; title=&quot;DateUtil&quot;&gt;&lt;/a&gt;DateUtil&lt;/h4&gt;&lt;p&gt;时间转换工具类（com.xxx.core.util.DateUtil）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字段概要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;限定符&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_HH_MM&lt;/td&gt;
+&lt;td&gt;HH:mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_YYYY_MM_DD&lt;/td&gt;
+&lt;td&gt;yyyy-MM-dd&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_YYYY_MM_DD_HH_MM&lt;/td&gt;
+&lt;td&gt;yyyy-MM-dd HH:mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_YYYY_MM_DD_HH_MM_SS&lt;/td&gt;
+&lt;td&gt;yyyy-MM-dd HH:mm:ss&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_YYYYMMDD&lt;/td&gt;
+&lt;td&gt;yyyyMMdd&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;static&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;DATE_FORMAT_YYYYMMDDHHMMSS&lt;/td&gt;
+&lt;td&gt;yyyyMMddHHmmss&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 05.常见问题</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-common-problem/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-common-problem/</id>
+    <published>2018-04-18T06:56:15.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Q-返回值-code-400405&quot;&gt;&lt;a href=&quot;#Q-返回值-code-400405&quot; class=&quot;headerlink&quot; title=&quot;Q : 返回值 code 400405&quot;&gt;&lt;/a&gt;Q : 返回值 &lt;em&gt;code&lt;/em&gt; 400405&lt;/h4&gt;&lt;p&gt;&lt;em&gt;A&lt;/em&gt; : GET/POST请求使用错误。 &lt;/p&gt;
+&lt;h4 id=&quot;Q-消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;a href=&quot;#Q-消费者调用了别人的提供者服务，导致调试困难&quot; class=&quot;headerlink&quot; title=&quot;Q : 消费者调用了别人的提供者服务，导致调试困难&quot;&gt;&lt;/a&gt;Q : 消费者调用了别人的提供者服务，导致调试困难&lt;/h4&gt;&lt;p&gt;&lt;em&gt;A&lt;/em&gt; : 这是怎么造成的呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartSpring框架 -- 06.升级计划</title>
+    <link href="https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-upgrade-plan/"/>
+    <id>https://zhenyuanlin.github.io/2018/04/18/smartcity-frame-upgrade-plan/</id>
+    <published>2018-04-18T06:50:05.000Z</published>
+    <updated>2021-04-10T20:41:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;V-0-5-0-SNAPSHOT&quot;&gt;&lt;a href=&quot;#V-0-5-0-SNAPSHOT&quot; class=&quot;headerlink&quot; title=&quot;V 0.5.0-SNAPSHOT&quot;&gt;&lt;/a&gt;&lt;em&gt;V 0.5.0-SNAPSHOT&lt;/em&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;初始化版本，完成时间 2017-07-20&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;技术选型落地，规范开发流程和项目结构&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;pom.xml&lt;/code&gt;里预定义常用开源组件依赖版本&lt;/li&gt;
+&lt;li&gt;拦截&lt;code&gt;Response&lt;/code&gt;的返回值，自动封装成 &lt;a href=&quot;https://ws1.sinaimg.cn/large/006tNc79ly1g2jvhtn6yqj30ts0l8tb1.jpg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Result&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;拦截&lt;code&gt;RuntimeException&lt;/code&gt;异常，统一处理自动封装&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="smartSpring" scheme="https://zhenyuanlin.github.io/tags/smartSpring/"/>
+    
+      <category term="框架" scheme="https://zhenyuanlin.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+</feed>
