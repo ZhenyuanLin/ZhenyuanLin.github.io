@@ -1,7 +1,0 @@
-https://zhenyuanlin.github.io/2021/06/11/kd-pytorch/
-https://zhenyuanlin.github.io/2021/06/05/rethink-overfitting-overfitting-de-chuan-tong-he-xian-dai-guan-dian-you-shi-me-bu-tong-ni/
-https://zhenyuanlin.github.io/2021/05/31/bert-attack-adversarial-attack-against-bert-using-bert/
-https://zhenyuanlin.github.io/2021/05/31/do-adversarially-robust-imagenetmodels-transfer-better/
-https://zhenyuanlin.github.io/2021/05/29/zhuan-ye-ying-yu/
-https://zhenyuanlin.github.io/2021/05/09/gpu-queue/
-https://zhenyuanlin.github.io/2020/01/14/5w2h-godweiyang/
